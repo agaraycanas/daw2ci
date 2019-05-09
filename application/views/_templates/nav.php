@@ -12,8 +12,20 @@
 
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="<?=base_url()?>anonymous/login">LOGIN</a>
-				<a class="dropdown-item" href="<?=base_url()?>cont/accion2">accion2</a>
 			</div>
 		</li>
    </ul>
+
+	<ul class="navbar-nav">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+				Admin
+			</a>
+
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="<?=base_url()?>admin/pais/list">Países</a>
+			</div>
+		</li>
+   </ul>
+
 </nav>

@@ -10,6 +10,14 @@
 		Apellido 1<input type="text" name="ape1" ><br/>
 		Apellido 2<input type="text" name="ape2" ><br/>
 		
+		País
+		<select name="pais" method="post">
+		<?php foreach ($body['paises'] as $pais): ?>
+			<option value="<?= $pais->id?>"><?= $pais->nombre ?></option>
+		<?php endforeach;?>
+		</select>
+		<br/>
+		
 		<input type="submit" ><br/>
 		
 	</form>

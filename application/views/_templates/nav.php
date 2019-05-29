@@ -24,6 +24,7 @@
 
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="<?=base_url()?>admin/pais/list">Países</a>
+				<a class="dropdown-item" href="<?=base_url()?>admin/aficion/list">Aficiones</a>
 			</div>
 		</li>
    </ul>

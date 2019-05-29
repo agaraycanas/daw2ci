@@ -84,8 +84,10 @@ class Anonymous extends CI_Controller
     public function registrar()
     {
         $this->load->model('Pais_model');
+        $this->load->model('Aficion_model');
         $data=[];
         $data['body']['paises'] = $this->Pais_model->findAll();
+        $data['body']['aficiones'] = $this->Aficion_model->findAll();
         frame($this, 'anonymous/registrar',$data);
     }
 
@@ -97,13 +99,14 @@ class Anonymous extends CI_Controller
         $loginname = isset($_POST['loginname']) ? $_POST['loginname'] : null;
         $password = isset($_POST['password']) ? $_POST['password'] : null;
         $pais = isset($_POST['pais']) ? $_POST['pais'] : null;
+        $aficiones = isset($_POST['aficiones']) ? $_POST['aficiones'] : [] ;
         
         if ($nombre == null || $loginname == null || $password == null || $pais==null) {
             info('Datos incorrectos', 'danger');
         } else {
             $this->load->model('Anonymous_model');
             try {
-                $this->Anonymous_model->registrar($nombre, $ape1, $ape2, $loginname, $password, $pais);
+                $this->Anonymous_model->registrar($nombre, $ape1, $ape2, $loginname, $password, $pais, $aficiones);
                 info('Usuario registrado correctamente', 'info');
             } catch (Exception $e) {
                 info($e->getMessage(), 'danger', 'anonymous/registrar');

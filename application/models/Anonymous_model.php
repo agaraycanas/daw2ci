@@ -49,7 +49,7 @@ class Anonymous_model extends CI_Model {
         }
     }
 
-    function registrar($nombre,$ape1,$ape2,$loginname,$password,$id_pais) {
+    function registrar($nombre,$ape1,$ape2,$loginname,$password,$id_pais, $id_aficiones) {
         
         $u = R::findOne('usuario','loginname = ?',[ $loginname ] );
         
@@ -68,7 +68,16 @@ class Anonymous_model extends CI_Model {
         $pais = R::load('pais',$id_pais);
         $usuario-> nace = $pais;
         
-        R::store($usuario);
+        
+       R::store($usuario);
+        
+        foreach ($id_aficiones as $id_aficion) {
+            $aficion = R::load('aficion',$id_aficion);
+            $gusta = R::dispense('gusta');
+            $gusta->aficion =  $aficion;
+            $gusta->usuario =  $usuario;
+            R::store($gusta);
+        }
         
         $rolUser = R::findOne('rol','nombre = ?',[ 'user' ] );
         

@@ -11,13 +11,23 @@
 		Apellido 2<input type="text" name="ape2" ><br/>
 		
 		País
-		<select name="pais" method="post">
+		<select name="pais">
 		<?php foreach ($body['paises'] as $pais): ?>
 			<option value="<?= $pais->id?>"><?= $pais->nombre ?></option>
 		<?php endforeach;?>
 		</select>
 		<br/>
 		
+		<fieldset>
+		<legend>Aficiones</legend>
+		<?php foreach ($body['aficiones'] as $aficion): ?>
+			<input type="checkbox" name="aficiones[]" id="aficion-<?= $aficion->id?>" value="<?= $aficion->id?>">
+			<label for="aficion-<?= $aficion->id?>"><?= $aficion->nombre ?></label>
+		<?php endforeach;?>
+		</fieldset>
+		
+		<br/>
+
 		<input type="submit" ><br/>
 		
 	</form>

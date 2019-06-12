@@ -49,7 +49,7 @@ class Anonymous_model extends CI_Model {
         }
     }
 
-    function registrar($nombre,$ape1,$ape2,$loginname,$password,$id_pais, $id_aficiones) {
+    function registrar($nombre,$ape1,$ape2,$loginname,$password,$fnac, $id_pais, $id_aficiones) {
         
         $u = R::findOne('usuario','loginname = ?',[ $loginname ] );
         
@@ -64,6 +64,7 @@ class Anonymous_model extends CI_Model {
         $usuario->ape2 = $ape2;
         $usuario->loginname = $loginname;
         $usuario->password= password_hash($password, PASSWORD_DEFAULT);
+        $usuario->fnac = $fnac;
         
         $pais = R::load('pais',$id_pais);
         $usuario-> nace = $pais;

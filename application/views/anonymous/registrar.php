@@ -9,6 +9,7 @@
 		Nombre<input type="text" name="nombre" required="required"><br/>
 		Apellido 1<input type="text" name="ape1" ><br/>
 		Apellido 2<input type="text" name="ape2" ><br/>
+		Fecha nacimiento<input type="date" name="fnac" ><br/>
 		
 		País
 		<select name="pais">

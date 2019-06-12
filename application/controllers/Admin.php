@@ -82,5 +82,25 @@ class Admin extends CI_Controller {
     }
     
     // =============================================================
+    
+    
+    
+    // ===================== USUARIO ======================================
+    
+    public function user($accion) {
+        switch ($accion) {
+            case 'list':$this->listarUser();break;
+            default:info('Acción inexistente', 'danger', 'anonymous/info');
+        }
+    }
+    
+    private function listarUser() {
+        $this->load->model('Usuario_model');
+        $data=[];
+        $data['body']['usuarios'] = $this->Usuario_model->findAll();
+        frame($this,'admin/usuario/list',$data);
+    }
+
+    //=====================================================================
 }
 ?>
